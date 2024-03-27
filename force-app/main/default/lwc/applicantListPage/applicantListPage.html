@@ -2,7 +2,7 @@
   @description       : candidate list component who have applied for a particular job
   @author            : Rudransh Shukla
   @group             : 
-  @last modified on  : 02-15-2024
+  @last modified on  : 03-27-2024
   @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 -->
 <template>
@@ -16,7 +16,6 @@
           </div>
           <div key={job.id} class="buttons">
             <lightning-button variant="Neutral" label="All" onclick={filterAll}></lightning-button>
-
             <lightning-button variant="Neutral" label="Pending" onclick={filterPending}></lightning-button>
             <lightning-button variant="Neutral" label="Accepted" onclick={filterAccepted}></lightning-button>
             <lightning-button variant="Neutral" label="Rejected" onclick={filterRejected}></lightning-button>
@@ -38,12 +37,12 @@
             </thead>
             <tbody>
               <template for:each={candidateDetails} for:item="candidate">
-                <tr key={candidate.Id}>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Name}</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Candidate_Email}</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Experience} years</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
-                    <div data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
+                <tr key={candidate.Id} data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
+                  <td>{candidate.Name}</td>
+                  <td>{candidate.Candidate_Email}</td>
+                  <td>{candidate.Experience} years</td>
+                  <td>
+                    <div>
                       <p>{candidate.matchPercentage}%</p>
                     </div>
                   </td>
@@ -71,12 +70,12 @@
             </thead>
             <tbody>
               <template for:each={acceptedCandidates} for:item="candidate">
-                <tr key={candidate.Id}>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Name}</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Candidate_Email}</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Experience} years</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
-                    <div data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
+                <tr data-candidateid={candidate.Id} onclick={navigateToDetailsPage} key={candidate.Id}>
+                  <td>{candidate.Name}</td>
+                  <td>{candidate.Candidate_Email}</td>
+                  <td>{candidate.Experience} years</td>
+                  <td>
+                    <div>
                       <p>{candidate.matchPercentage}%</p>
                     </div>
                   </td>
@@ -104,18 +103,18 @@
             </thead>
             <tbody>
               <template for:each={pendingCandidates} for:item="candidate">
-                <tr key={candidate.Id}>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Name}</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Candidate_Email}</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Experience} years</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
-                    <div data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
+                <tr key={candidate.Id} data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
+                  <td>{candidate.Name}</td>
+                  <td>{candidate.Candidate_Email}</td>
+                  <td>{candidate.Experience} years</td>
+                  <td>
+                    <div>
                       <p>{candidate.matchPercentage}%</p>
                     </div>
                   </td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.City},
+                  <td>{candidate.City},
                     {candidate.Country}</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
+                  <td>
                     <p>{candidate.Status}</p>
                   </td>
                 </tr>
@@ -137,18 +136,18 @@
             </thead>
             <tbody>
               <template for:each={rejectedCandidates} for:item="candidate">
-                <tr key={candidate.Id}>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Name}</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Candidate_Email}</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.Experience} years</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
-                    <div data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
+                <tr key={candidate.Id} data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
+                  <td>{candidate.Name}</td>
+                  <td>{candidate.Candidate_Email}</td>
+                  <td>{candidate.Experience} years</td>
+                  <td>
+                    <div>
                       <p>{candidate.matchPercentage}%</p>
                     </div>
                   </td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>{candidate.City},
+                  <td>{candidate.City},
                     {candidate.Country}</td>
-                  <td data-candidateid={candidate.Id} onclick={navigateToDetailsPage}>
+                  <td>
                     <p>{candidate.Status}</p>
                   </td>
                 </tr>
